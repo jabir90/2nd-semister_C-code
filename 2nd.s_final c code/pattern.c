@@ -1,6 +1,6 @@
 # include <stdio.h>
 void pattern1(int n){
-    for(int i=0; i<=n; i++){
+    for(int i=0; i<n; i++){
         for(int j=0; j<n; j++){
             printf("* ");
         }
@@ -36,9 +36,13 @@ void pattern4(int n){
 
 }
 void pattern5(int n){
-    for(int i=1; i<=n; i++){
-        for(int j=1; j<(n-i+1); j++){
-            printf("* ");
+    for(int i=0; i<=n; i++){
+        for(int j=0; j<i; j++){
+            // Print 1 for odd position and 0 for even position
+            if ((i+j)%2==0)
+                printf("1 ");
+            else
+                printf("0 ");
         }
         printf("\n");
     }
@@ -46,17 +50,26 @@ void pattern5(int n){
 }
 void pattern6(int n){
     for(int i=1; i<=n; i++){
-        for(int j=1; j<(n-i+1); j++){
-            printf("%d ", j);
+        for(int j=1; j<=(n-i+1); j++){
+            printf("* ");
         }
         printf("\n");
     }
 
 }
 void pattern7(int n){
+    for(int i=0; i<=n; i++){
+        for(int j=0; j<(n-i+1); j++){
+            printf("%d ", j);
+        }
+        printf("\n");
+    }
+
+}
+void pattern8(int n){
     for(int i=0; i<n; i++){
         // Space
-        for(int j=0; j<(n-i-1); j++){
+        for(int j=0; j<(n-i+1); j++){
             printf(" ");
         }
         // star
@@ -64,14 +77,14 @@ void pattern7(int n){
             printf("*");
         }
         // Space
-        for(int j=0; j<(n-i-1); j++){
+        for(int j=0; j<(n-i+1); j++){
             printf(" ");
         }
         printf("\n");
     }
 
 }
-void pattern8(int n){
+void pattern9(int n){
     for(int i=1; i<n; i++){
         // Space
         for(int j=1; j<i; j++){
@@ -89,7 +102,7 @@ void pattern8(int n){
     }
 
 }
-void pattern9(int n){
+void pattern10(int n){
         // Upper part
        for(int i=0; i<n; i++){
         // Space
@@ -128,6 +141,6 @@ int main(){
     printf("Enter the number: ");
     scanf("%d",&num);
 
-    pattern9(num);
+    pattern6(num);
 return 0;
 }
