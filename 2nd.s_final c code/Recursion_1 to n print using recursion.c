@@ -1,22 +1,37 @@
-//print numbers from 1 to n using recursion
 #include <stdio.h>
 
-// Recursive function
-void printNumbers(int n) {
+void printNumbers1(int n) {
+  // Recursive function print 1 to n
     if (n == 0)
         return;   // Base case
 
-    printNumbers(n - 1);  // Recursive call
+    printNumbers1(n - 1);  // Recursive call
     printf("%d ", n);     // Print after recursion
 }
+void printNumbers2(int n) {
+    // Recursive function print n to 1
+    if (n == 0)
+        return;   // Base case
 
+    printf("%d ", n);        // Print current number
+    printNumbers2(n - 1);    // Recursive call
+}
+void printNumbers3(int n) {
+   // Enter 1 print 1 to 10
+    if (n > 10) {
+        printf("Job successfully done\n");
+        return;
+    }
+    printf("%d\n", n);
+    printNumbers3(n + 1);
+}
 int main() {
-    int n;
+    int num;
 
-    printf("Enter n: ");
-    scanf("%d", &n);
+    printf("Enter a number: ");
+    scanf("%d", &num);
 
-    printNumbers(n);
+    printNumbers3(num);
 
     return 0;
 }
